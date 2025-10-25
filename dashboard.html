@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - DealDen.BMU</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1>DealDen.BMU</h1>
+            <p>BML Munjal University Student Marketplace</p>
+            <div class="user-info">
+                <span id="userEmail"></span>
+                <button id="logoutBtn" class="btn btn-small">Logout</button>
+            </div>
+        </header>
+        
+        <nav class="nav-tabs">
+            <button class="nav-tab active" data-tab="services">Services</button>
+            <button class="nav-tab" data-tab="marketplace">Marketplace</button>
+        </nav>
+        
+        <!-- Services Tab -->
+        <div id="services-tab" class="tab-content active">
+            <div class="service-selection">
+                <h2>What would you like to do?</h2>
+                <div class="service-options">
+                    <button class="service-option" data-action="need">I Need a Service</button>
+                    <button class="service-option" data-action="offer">I Want to Offer a Service</button>
+                </div>
+            </div>
+            
+            <div id="service-categories" class="service-categories" style="display: none;">
+                <h3>Select a Service Category</h3>
+                <select id="serviceDropdown" class="service-dropdown">
+                    <option value="">Choose a service...</option>
+                    <option value="editing">Editing (₹200-500)</option>
+                    <option value="photography">Photography (₹1000-3000)</option>
+                    <option value="videography">Videography (₹1500-5000)</option>
+                    <option value="peer-tuition">Peer Tuition (₹300-800/hour)</option>
+                    <option value="graphic-design">Graphic Design (₹500-2000)</option>
+                    <option value="content-writing">Content Writing (₹200-1000)</option>
+                    <option value="practical-file">Practical File Help (₹100-300)</option>
+                    <option value="music-lessons">Music Lessons (₹400-1200/hour)</option>
+                    <option value="custom-gifts">Custom Gifts (₹500-3000)</option>
+                    <option value="tech-help">Tech Help (₹200-1000)</option>
+                    <option value="fitness-training">Fitness Training (₹500-2000/session)</option>
+                    <option value="volunteering">Volunteering (Free)</option>
+                </select>
+            </div>
+            
+            <div id="service-providers" class="service-providers" style="display: none;">
+                <h3>Available Service Providers</h3>
+                <div id="providersList" class="providers-list"></div>
+            </div>
+            
+            <div id="offer-service-form" class="offer-service-form" style="display: none;">
+                <h3>Offer Your Service</h3>
+                <form id="serviceOfferForm">
+                    <div class="form-group">
+                        <label for="serviceName">Service Name</label>
+                        <input type="text" id="serviceName" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="serviceDescription">Description</label>
+                        <textarea id="serviceDescription" rows="4" required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="servicePrice">Price (₹)</label>
+                        <input type="number" id="servicePrice" min="0" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="serviceExperience">Your Experience</label>
+                        <textarea id="serviceExperience" rows="3" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Add Service</button>
+                </form>
+            </div>
+        </div>
+        
+        <!-- Marketplace Tab -->
+        <div id="marketplace-tab" class="tab-content">
+            <div class="marketplace-options">
+                <h2>Secondhand Marketplace</h2>
+                <div class="marketplace-actions">
+                    <button class="marketplace-option" data-action="buy">Buy Items</button>
+                    <button class="marketplace-option" data-action="sell">Sell Items</button>
+                </div>
+            </div>
+            
+            <div id="buy-items" class="marketplace-content" style="display: none;">
+                <h3>Available Items for Sale</h3>
+                <div class="category-filters">
+                    <button class="filter-btn active" data-category="all">All</button>
+                    <button class="filter-btn" data-category="books">Books</button>
+                    <button class="filter-btn" data-category="electronics">Electronics</button>
+                    <button class="filter-btn" data-category="watches">Watches</button>
+                    <button class="filter-btn" data-category="entertainment">Entertainment</button>
+                </div>
+                <div id="itemsList" class="items-grid"></div>
+            </div>
+            
+            <div id="sell-items" class="marketplace-content" style="display: none;">
+                <h3>Sell Your Item</h3>
+                <form id="sellItemForm">
+                    <div class="form-group">
+                        <label for="itemName">Item Name</label>
+                        <input type="text" id="itemName" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="itemCategory">Category</label>
+                        <select id="itemCategory" required>
+                            <option value="">Select Category</option>
+                            <option value="books">Books</option>
+                            <option value="electronics">Electronics</option>
+                            <option value="watches">Watches</option>
+                            <option value="entertainment">Entertainment</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="itemDescription">Description</label>
+                        <textarea id="itemDescription" rows="3" required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="itemPrice">Price (₹)</label>
+                        <input type="number" id="itemPrice" min="0" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="itemImage">Image URL</label>
+                        <input type="url" id="itemImage" placeholder="https://example.com/image.jpg">
+                    </div>
+                    <button type="submit" class="btn btn-primary">List Item for Sale</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
